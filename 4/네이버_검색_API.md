@@ -14,7 +14,13 @@ response = urllib.request.urlopen(request)
 rescode = response.getcode()
 if(rescode==200):
     response_body = response.read()
-    print(response_body.decode('utf-8'))
+    print(response_body.decode('utf-8')) #한글을 읽기 위해서 utf-8로 디코딩합니다.
+    #print(response.read().decode('utf-8'))
 else:
     print("Error Code:" + rescode)
+```
+
+```python
+def create_url(api_node, search_text, start_num, disp_num):
+    base = "https://openapi.naver.com/v1/search"
 ```
