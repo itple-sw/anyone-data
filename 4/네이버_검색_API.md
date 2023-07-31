@@ -108,3 +108,28 @@ url = create_url("book", "파이썬", 1, 100)
 result_search = get_dataframe(url)
 result_search
 ```
+
+* range 함수를 사용해서 결과를 가져오겠습니다.
+* range(시작, 끝, 간격)
+* range(1,300,100)은 1, 101, 201이 됩니다.
+* concat으로 DataFrame 데이터를 합칩니다.
+```pytnon
+result_search = []
+for n in range(1,300,100):
+    url = create_url("book", "파이썬", n, 100)
+    result_search.append(get_dataframe(url))
+result_search = pd.concat(result_search)
+result_search
+```
+
+## 엑셀로 저장하기
+* xlsxwriter 모듈을 설치합니다.
+* ```!pip install xlsxwriter```
+* pd.ExcelWriter(경로, engine='xlsxwriter')로 객체를 만듭니다.
+* to_excel(writer객체, sheet_name='시트이름')으로 저장합니다.
+* writer.save()로 저장합니다.
+```python
+writer = pd.ExcelWriter("./data/python_book_info.xlsx", engine='xlsxwriter')
+result_search.to_excel(writer, sheet_name="Sheet1")
+writer.save()
+```
