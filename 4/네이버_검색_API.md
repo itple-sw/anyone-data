@@ -124,7 +124,7 @@ result_search
 
 ## 엑셀로 저장하기
 * xlsxwriter 모듈을 설치합니다.
-* ```!pip install xlsxwriter```
+* ```pip install xlsxwriter```
 * pd.ExcelWriter(경로, engine='xlsxwriter')로 객체를 만듭니다.
 * to_excel(writer객체, sheet_name='시트이름')으로 저장합니다.
 * writer.save()로 저장합니다.
