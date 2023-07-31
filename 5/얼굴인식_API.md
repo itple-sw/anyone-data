@@ -95,4 +95,28 @@ plt.show()
 ```
 
 * 여러 얼굴이 있는 사진에 대한 정보를 표시해보겠습니다.
-* 
+* for문을 사용해서 얼굴 갯수만큼 정보를 확인합니다.
+* 얼굴 아래에 성별, 감정, 나이 정보를 글자로 표시하는 코드를 완성합니다.
+```python
+url = "https://openapi.naver.com/v1/vision/face"
+files = {'image': open('./data/face_detection_test_02.jpg', 'rb')}
+headers = {'X-Naver-Client-Id' : client_id, 'X-Naver-Client-Secret' : client_secret}
+response = requests.post(url, files=files, headers=headers)
+
+detect_result = json.loads(response.text)
+
+img = mpimg.imread('./data/face_detection_test_02.jpg')
+
+fig, ax = plt.subplots(figsize=(14,10))
+ax.imshow(img)
+
+for each in detect_result['faces']:
+    x, y, w, h = each['roi'].values()
+    gender, gender_confidence = each['gender'].values()
+    emotion, emotion_confidence = each['emotion'].values()
+    age, age_confidence = each['age'].values()
+    
+    rect_face = patches.Rectangle((x,y),w,h, linewidth=5, edgecolor='r', facecolor='none')
+    ax.add_patch(rect_face)
+    # 얼굴 아래에 성별, 감정, 나이 정보를 글자로 표시하는 코드를 넣습니다.  
+```
