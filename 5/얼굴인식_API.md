@@ -9,6 +9,7 @@ import matplotlib.image as mpimg
 %matplotlib inline
 ```
 
+* 사진을 다운로드 받습니다.
 ```python
 img = mpimg.imread('./data/face_detection_test_01.jpg')
 
