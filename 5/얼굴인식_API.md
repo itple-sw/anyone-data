@@ -70,8 +70,9 @@ age, age_confidence = detect_result['faces'][0]['age'].values()
 ```
 
 * 사진에 표시할 내용을 정리합니다.
+* 괄호 안에 넣습니다.
 ```python
-annotation = gender + " : " + str(gender_confidence) + '\n' +  emotion + " : " + str(emotion_confidence) + '\n' +  age + " : " + str(age_confidence)
+annotation = (gender + " : " + str(gender_confidence) + '\n' +  emotion + " : " + str(emotion_confidence) + '\n' +  age + " : " + str(age_confidence))
 ```
 
 * matplotlib.patches는 사각형과 같은 도형을 그릴 수 있게 도와주는 모듈입니다.
@@ -93,4 +94,5 @@ plt.text(10, 400, annotation, wrap=True, fontsize=17, color='white')
 plt.show()
 ```
 
-
+* 여러 얼굴이 있는 사진에 대한 정보를 표시해보겠습니다.
+* 
