@@ -77,9 +77,34 @@ pubdates = [result['items'][n]['pubdate'] for n in range(len(result['items']))]
 pubdates
 ```
 
-## DataFrame 만들기
 * DataFrame을 만들어서 데이터를 저장합니다.
 ```python
-
+pd.DataFrame({'책제목' : titles, '작가' : authors, '출판일' : pubdates})
 ```
 
+* 함수를 만들어서 여러 결과를 저장할 수 있도록 합니다.
+```python
+def get_dataframe(url):
+    client_id = "YOUR_CLIENT_ID"
+    client_secret = "YOUR_CLIENT_SECRET"
+    
+    request = urllib.request.Request(url)
+    request.add_header("X-Naver-Client-Id",client_id)
+    request.add_header("X-Naver-Client-Secret",client_secret)
+    response = urllib.request.urlopen(request)
+
+    result = json.loads(response.read().decode('utf-8'))
+    
+    end_num = result['display'] #검색 결과 갯수입니다.
+    
+    titles = [result['items'][n]['title'] for n in range(end_num)]
+    authors = [result['items'][n]['author'] for n in range(end_num)]
+    pubdates = [result['items'][n]['pubdate'] for n in range(end_num)]
+    
+    return pd.DataFrame({'책제목' : titles, '작가' : authors, '출판일' : pubdates})
+```
+```python
+url = create_url("book", "파이썬", 1, 100)
+result_search = get_dataframe(url)
+result_search
+```
