@@ -133,3 +133,4 @@ writer = pd.ExcelWriter("./data/python_book_info.xlsx", engine='xlsxwriter')
 result_search.to_excel(writer, sheet_name="Sheet1")
 writer.save()
 ```
+* 현재 버전에서는 writer.save()대신에 writer.close()를 사용해야 합니다.
