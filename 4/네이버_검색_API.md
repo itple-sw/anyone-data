@@ -1,4 +1,5 @@
 # 네이버 검색 API 사용하기
+## 네이버 API 사용법
 * https://developers.naver.com/docs/serviceapi/search/blog/blog.md#python 에서 사용법을 확인합니다.
 * 블로그에서 검색한 결과를 알려줍니다.
 ```python
@@ -22,7 +23,6 @@ else:
 ```
 
 * API 요청 주소를 만드는 함수를 정의합니다.
-* 
 ```python
 def create_url(api_node, search_text, start_num, disp_num):
     base = "https://openapi.naver.com/v1/search"
@@ -54,3 +54,32 @@ response = urllib.request.urlopen(request)
 result = json.loads(response.read().decode('utf-8'))
 result
 ```
+
+* 실제 검색결과는 items라는 항목에 저장되어 있습니다.
+```python
+result['items']
+```
+* title이 제목입니다.
+```python
+titles = [result['items'][n]['title'] for n in range(len(result['items']))]
+titles
+```
+
+* author는 작가입니다.
+```python
+authors = [result['items'][n]['author'] for n in range(len(result['items']))]
+authors
+```
+
+* pubdate는 출판일입니다.
+```python
+pubdates = [result['items'][n]['pubdate'] for n in range(len(result['items']))]
+pubdates
+```
+
+## DataFrame 만들기
+* DataFrame을 만들어서 데이터를 저장합니다.
+```python
+
+```
+
