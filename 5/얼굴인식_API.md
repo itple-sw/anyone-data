@@ -1,7 +1,7 @@
 # 얼굴인식 등의 이미지 관련 API 사용하기
-* 모듈 설치하기
-  * ```pip install pillow```
-  * ```pip install requests```
+* 모듈을 설치합니다.
+* ```pip install pillow```
+* ```pip install requests```
 
 ```python
 import matplotlib.pyplot as plt
