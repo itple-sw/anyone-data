@@ -33,7 +33,7 @@ client_secret = "" # 자신의 비밀키를 입력합니다.
 url = "https://openapi.naver.com/v1/vision/celebrity"
 files = {'image': open('./data/face_detection_test_01.jpg', 'rb')}
 headers = {'X-Naver-Client-Id' : client_id, 'X-Naver-Client-Secret' : client_secret}
-response = requests.post(url, files=files, headers=headers
+response = requests.post(url, files=files, headers=headers)
 ```
 
 * json 모듈로 데이터를 읽습니다.
