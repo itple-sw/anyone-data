@@ -64,7 +64,7 @@ detect_result
 * 딕셔너리.values()로 값을 반환합니다.
 ```python
 x, y, w, h = detect_result['faces'][0]['roi'].values()
-gener, gender_confidence = detect_result['faces'][0]['gender'].values()
+gender, gender_confidence = detect_result['faces'][0]['gender'].values()
 emotion, emotion_confidence = detect_result['faces'][0]['emotion'].values()
 age, age_confidence = detect_result['faces'][0]['age'].values()
 ```
