@@ -1,6 +1,9 @@
 # 네이버 검색 API 사용하기
 ## 네이버 API 사용법
 * https://developers.naver.com/docs/serviceapi/search/blog/blog.md#python 에서 사용법을 확인합니다.
+* 임시 인증키
+    * ID : VaF0hDU4GiXIBHcQBsGh
+    * PW : xWYrXTVelb 
 * 블로그에서 검색한 결과를 알려줍니다.
 ```python
 import urllib.request
